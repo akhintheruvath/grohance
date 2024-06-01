@@ -9,7 +9,7 @@ export const Dropdown = ({ options, selectedOption, setSelectedOption, setIsFilt
 
   return (
     <div className="bg-gray-100 flex flex-col items-center sm:justify-center">
-      <div className="w-full max-w-md bg-white sm:shadow-md rounded p-1">
+      <div className="w-full min-w-36 max-w-md bg-white sm:shadow-md rounded p-1">
         <Select
           id="filter"
           value={selectedOption}
