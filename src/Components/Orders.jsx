@@ -114,7 +114,7 @@ export const Orders = () => {
                               Search
                            </button>
                         </div>
-                        <div className="ml-6 mt-5 sm:mt-0">
+                        <div className="sm:ml-6 mt-5 sm:mt-0">
                            <Dropdown
                               options={options}
                               selectedOption={selectedOption}

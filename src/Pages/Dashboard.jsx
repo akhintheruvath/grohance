@@ -23,7 +23,7 @@ export const Dashboard = () => {
                activeLink={activeLink}
             />
          </div>
-         <div className='w-full bg-[#F8FAFF] md:p-8'>
+         <div className='w-full bg-[#F8FAFF] md:p-8 overflow-hidden'>
             <MobileScreenHeader
                toggleSidebar={toggleSidebar}
             />
