@@ -15,8 +15,8 @@ export const Dashboard = () => {
    };
 
    return (
-      <div className="flex">
-         <div className={`w-5/6 md:w-72 h-screen fixed top-0 left-0 md:static transition-transform transform ${isSidebarVisible ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 z-40`}>
+      <div className="flex h-screen">
+         <div className={`w-5/6 md:w-72 fixed top-0 left-0 md:static transition-transform transform ${isSidebarVisible ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 z-40`}>
             <Sidebar
                isSidebarVisible={isSidebarVisible}
                toggleSidebar={toggleSidebar}
