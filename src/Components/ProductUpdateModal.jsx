@@ -6,7 +6,6 @@ import { updateProductCount } from "../api/updateProductCount";
 export const ProductUpdateModal = ({ onClose, order, fetchOrderApiParams }) => {
    const [products, setProducts] = useState(order.line_items);
    const [orderTotal, setOrderTotal] = useState(0);
-   const [error, setError] = useState(null);
 
    useEffect(() => {
       setOrderTotal(products.reduce((sum, product) => {
