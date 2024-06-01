@@ -44,7 +44,7 @@ export const ProductUpdateModal = ({ onClose, order, fetchOrderApiParams }) => {
    };
 
    const saveAndClose = async () => {
-      updateProductCount(fetchOrderApiParams.setLoading, order, products, orderTotal, setError, fetchOrderApiParams);
+      updateProductCount(fetchOrderApiParams.setLoading, order, products, orderTotal, fetchOrderApiParams);
       onClose();
    }
 
