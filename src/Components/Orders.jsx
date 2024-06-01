@@ -5,6 +5,7 @@ import { TableCell } from "./TableCell";
 import { ProductUpdateModal } from "./ProductUpdateModal";
 import { fetchOrders } from "../api/fetchOrders";
 import { Searchbar } from "../Components/Searchbar";
+import { Dropdown } from "./Dropdown";
 
 export const Orders = () => {
    const [orders, setOrders] = useState([]);
@@ -17,7 +18,21 @@ export const Orders = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [selectedOrderId, setSelectedOrderId] = useState(null);
    const [searchText, setSearchText] = useState("");
+   const [selectedOption, setSelectedOption] = useState(null);
+   const [isFilterSelected, setIsFilterSelected] = useState(false);
+   
    const perPage = 10;
+   const options = [
+      { value: 'any', label: 'Any' },
+      { value: 'pending', label: 'Pending' },
+      { value: 'processing', label: 'Processing' },
+      { value: 'on-hold', label: 'On-Hold' },
+      { value: 'completed', label: 'Completed' },
+      { value: 'cancelled', label: 'Cancelled' },
+      { value: 'refunded', label: 'Refunded' },
+      { value: 'failed', label: 'Failed' },
+      { value: 'trash', label: 'Trash' },
+   ]
 
    const apiParams = {
       perPage,
@@ -29,6 +44,17 @@ export const Orders = () => {
       setError,
    }
 
+   useEffect(() => {
+      fetchOrders(apiParams);
+   }, [currentPage]);
+
+   useEffect(() => {
+      if(isFilterSelected) {
+         fetchOrders({...apiParams, status: selectedOption});
+         setIsFilterSelected(false);
+      }
+   }, [isFilterSelected]);
+
    const openModal = (orderId) => {
      setSelectedOrderId(orderId);
      setIsModalOpen(true);
@@ -37,10 +63,6 @@ export const Orders = () => {
    const closeModal = () => {
      setIsModalOpen(false);
    };
-   
-   useEffect(() => {
-      fetchOrders(apiParams);
-   }, [currentPage]);
 
    const handleSearch = () => {
       fetchOrders({...apiParams, searchText});
@@ -77,6 +99,15 @@ export const Orders = () => {
                         >
                            Search
                         </button>
+                        </div>
+                        <div className="ml-6 mt-5 sm:mt-0">
+                           <Dropdown
+                              options={options}
+                              selectedOption={selectedOption}
+                              setSelectedOption={setSelectedOption}
+                              setIsFilterSelected={setIsFilterSelected}
+                           />
+                        </div>
                      </div>
                      {
                         (nextClicked && noMoreOrders) || orders.length ? (
