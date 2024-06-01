@@ -6,6 +6,7 @@ import { ProductUpdateModal } from "./ProductUpdateModal";
 import { fetchOrders } from "../api/fetchOrders";
 import { Searchbar } from "../Components/Searchbar";
 import { Dropdown } from "./Dropdown";
+import { Bars } from "react-loader-spinner";
 
 export const Orders = () => {
    const [orders, setOrders] = useState([]);
@@ -84,22 +85,32 @@ export const Orders = () => {
       <div className="mt-2">
          {
             loading ? (
-               <p className="text-xl">Loading Data...</p>
+               <div className="text-xl mt-36 flex justify-center">
+                  <Bars
+                     height="60"
+                     width="60"
+                     color="#605BFF"
+                     ariaLabel="bars-loading"
+                     wrapperStyle={{}}
+                     wrapperClass=""
+                     visible={true}
+                  />
+               </div>
             ) : (
                success ? (
                   <>
                      <div className="mb-5 block sm:flex justify-end mr-7 items-center">
                         <div className="flex max-h-10 items-start">
-                        <Searchbar
-                           searchText={searchText}
-                           setSearchText={setSearchText}
-                        />
-                        <button
+                           <Searchbar
+                              searchText={searchText}
+                              setSearchText={setSearchText}
+                           />
+                           <button
                               className="ml-2 bg-[#605BFF] h-12 px-4 rounded-md text-sm text-white"
-                           onClick={handleSearch}
-                        >
-                           Search
-                        </button>
+                              onClick={handleSearch}
+                           >
+                              Search
+                           </button>
                         </div>
                         <div className="ml-6 mt-5 sm:mt-0">
                            <Dropdown
