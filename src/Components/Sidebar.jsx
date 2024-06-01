@@ -10,7 +10,7 @@ export const Sidebar = ({ activeLink, isSidebarVisible, toggleSidebar }) => {
     <div className={`pt-4 md:pt-8 bg-white h-screen md:h-auto rounded-r-3xl md:rounded-none md:shadow-none ${isSidebarVisible && 'shadow-2xl'}`}>
       <div className='flex items-center justify-between md:justify-center py-2 md:pb-9'>
          <div className='flex items-center'>
-            <h2 className='ml-8 md:ml-0 text-[#030229] font-semibold text-3xl leading-8'>grohance</h2>
+            <h2 className='ml-8 md:ml-0 px-8 xl:px-0 text-[#030229] font-semibold text-3xl leading-8'>grohance</h2>
          </div>
          <div className='md:hidden mr-5' onClick={toggleSidebar}><MenuCloseIcon /></div>
       </div>

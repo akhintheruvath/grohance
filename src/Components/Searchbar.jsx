@@ -11,7 +11,7 @@ export const Searchbar = ({ searchText, setSearchText }) => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search"
-            className="border border-[#F5F5F5] pl-12 pr-3 h-10 text-sm placeholder-text-[#7E858E99] placeholder-opacity-80 rounded-md focus:outline-none"
+            className="border border-[#F5F5F5] pl-12 pr-3 h-12 text-sm placeholder-text-[#7E858E99] placeholder-opacity-80 rounded-md focus:outline-[#605BFF]"
          />
       </div>
    );
