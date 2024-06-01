@@ -81,20 +81,21 @@ export const Orders = () => {
    }
 
    return (
-      <div className="mt-6">
+      <div className="mt-2">
          {
             loading ? (
                <p className="text-xl">Loading Data...</p>
             ) : (
                success ? (
                   <>
-                     <div className="mb-5 flex justify-end mr-7">
+                     <div className="mb-5 block sm:flex justify-end mr-7 items-center">
+                        <div className="flex max-h-10 items-start">
                         <Searchbar
                            searchText={searchText}
                            setSearchText={setSearchText}
                         />
                         <button
-                           className="ml-4 bg-[#605BFF] px-3 rounded-md text-sm text-white"
+                              className="ml-2 bg-[#605BFF] h-12 px-4 rounded-md text-sm text-white"
                            onClick={handleSearch}
                         >
                            Search
