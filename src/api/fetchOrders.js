@@ -1,6 +1,6 @@
 import { WooCommerce } from "../utils/axios-utils";
 
-export const fetchOrders = async ({perPage, currentPage, setLoading, setSuccess, setNoMoreOrders, setOrders, setError, searchText = "", status = "any"}) => {
+export const fetchOrders = async ({perPage, currentPage, setLoading, setSuccess, setNoMoreOrders, setOrders, setError, searchText = "", status = { value: 'any', label: 'Any' }}) => {
    try {
       setLoading(true);
       const response = await WooCommerce.get("/wp-json/wc/v3/orders", {

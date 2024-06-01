@@ -19,7 +19,7 @@ export const Orders = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [selectedOrderId, setSelectedOrderId] = useState(null);
    const [searchText, setSearchText] = useState("");
-   const [selectedOption, setSelectedOption] = useState(null);
+   const [selectedOption, setSelectedOption] = useState({ value: 'any', label: 'Any' });
    const [isFilterSelected, setIsFilterSelected] = useState(false);
    
    const perPage = 10;
@@ -43,6 +43,8 @@ export const Orders = () => {
       setNoMoreOrders,
       setOrders,
       setError,
+      searchText,
+      status: selectedOption,
    }
 
    useEffect(() => {
@@ -51,7 +53,7 @@ export const Orders = () => {
 
    useEffect(() => {
       if(isFilterSelected) {
-         fetchOrders({...apiParams, status: selectedOption});
+         fetchOrders(apiParams);
          setIsFilterSelected(false);
       }
    }, [isFilterSelected]);
@@ -66,7 +68,7 @@ export const Orders = () => {
    };
 
    const handleSearch = () => {
-      fetchOrders({...apiParams, searchText});
+      fetchOrders(apiParams);
    }
 
    const handlePrevButtonClick = () => {
