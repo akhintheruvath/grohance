@@ -27,17 +27,19 @@ export const Dashboard = () => {
             <MobileScreenHeader
                toggleSidebar={toggleSidebar}
             />
-            <div className="md:hidden mt-28 pt-4 justify-between items-center pl-8">
-               <HeadingComponent activeLink={activeLink} />
-            </div>
-            <div className='pt-3 hidden md:flex justify-between items-center'>
-               <HeadingComponent activeLink={activeLink} />
-            </div>
             {
                activeLink === "/orders" && (
-                  <div className="pl-8 md:p-0">
-                     <Orders />
-                  </div>
+                  <>
+                     <div className="md:hidden mt-28 pt-4 justify-between items-center pl-8">
+                        <HeadingComponent heading={"Orders and Details"} />
+                     </div>
+                     <div className='pt-3 hidden md:flex justify-between items-center'>
+                        <HeadingComponent heading={"Orders and Details"} />
+                     </div>
+                     <div className="pl-8 md:p-0">
+                        <Orders />
+                     </div>
+                  </>
                )
             }
          </div>
